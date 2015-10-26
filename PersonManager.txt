@@ -1,0 +1,62 @@
+public class PersonManager extends JFrame{
+	
+	public static void main(String [] args){
+		PersonManeger window = new PersonManager();
+		window.setVisible(true);
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setTitle("Zane Gray Homework Week 8");
+	}
+	public PersonManager(){
+		JPanel p = new JPanel();
+		p.setLayout(new BorderLayout);
+		add(p, BorderLayout.NORTH);
+		
+	}
+	
+	public void WriteGroup(Person() p){
+	String s = new String "";
+	
+	JOptionPane.showMessageDialog("Attempting to write file");
+		try{
+			FileOutputStream fout = new FileOutputStream(f);
+			ObjectOutputStream oout = new ObjectOutputStream(fout);
+			for(Person i:p){
+				oout.writeObject(i);
+				
+			}
+			oout.close();
+		}catch(IOException e){
+			JOptionPane.showMessageDialog("Write failed\n"+e.toString());
+		}
+	}
+	
+	public void ReadGroup
+}
+class Menu extends JMenuBar{
+	JMenuItem items[] = new JMenuItem{
+		new JMenuItem("New"),
+		new JMenuItem("Open..."),
+		new JMenuItem("Exit")
+	}
+	
+	JMenu FileMenu = new JMenu("File");
+	
+	public FileMenu(){
+		super();
+		
+		for(int i = 0; i < items.length; i++){
+			items[i].addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e){
+					switch(e.getSource()){
+						case items[0]:	PersonManager.writeFile();	break;
+						case items[1]:	PersonManager.readFile();	break;
+						case items[2]:	System.exit(0);				break;
+					}
+				}
+			});
+			add(items[i]);
+		}
+		
+	}
+	
+}
